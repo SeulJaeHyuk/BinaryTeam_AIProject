@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=21">
+
+    <title>Binary</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link href="img/cod.png" rel="icon">
+
+    <!-- Button -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index2.html">
+                <img src="img/cod.png" width="50" height="50">
+                <div class="sidebar-brand-text mx-3">Binary</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="management.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>관리</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="profile.html">회원정보</a>
+                        <a class="collapse-item" href="charts.html">출입통계</a>
+                        <a class="collapse-item" href="record.html">출입기록</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="index.html">Main</a>
+                        <a class="collapse-item" href="about.html">About</a>
+                        <a class="collapse-item" href="service.html">Services</a>
+                        <a class="collapse-item" href="blog.html">Process</a>
+                        <a class="collapse-item" href="contact.html">Contact</a>
+                        <a class="collapse-item" href="login.html">Login</a>
+                        <div class="collapse-divider"></div>
+                        <hr>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <hr>
+                        <h6 class="collapse-header">My pages:</h6>
+                        <a class="collapse-item" href="profile.html">회원정보</a>
+                        <a class="collapse-item" href="re.html">정보수정</a>
+                        <a class="collapse-item" href="regist2.html">회원추가</a>
+                        <a class="collapse-item" href="mypage.html">정보확인</a>
+                        <a class="collapse-item" href="mypage.html">정보삭제</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow">
+                                <a class="dropdown-item" href="index.html" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">회원 정보 수정</h1>
+                    <p class="mb-4">등록된 회원의 정보를 수정할 수 있습니다.</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block">회원 정보 수정</h6>
+                        </div>
+                        <form class="form">
+                            <div style="overflow: auto;">
+                                <div class="img-box">
+                                    <img id="myimg" class="profile" src="img/add profile.png" alt="사진등록" title="사진을 등록해주세요"
+                                        required autofocus>
+                                </div>
+                                <div class="input-box">
+                                    <label for="categori">구분 : </label>
+                                    <input id="categori" type="text" readonly minlength="1" maxlength="2" required autofocus> <br>
+                                    <label for="status">학적 : </label>
+                                    <select id="status">
+                                        <option value="재학">재학</option>
+                                        <option value="휴학">휴학</option>
+                                    </select>
+                                    
+                                    <label for="grade" id="grade-label">학년 :</label>
+                                    <select id="grade">
+                                        <option value=1>1 학년</option>
+                                        <option value=2>2 학년</option>
+                                    </select>
+
+                                    <label for="number" style="left:auto;">학번 : </label>
+                                    <input id="number" type="text" readonly
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                        minlength="1" maxlength="9" required autofocus> <br>
+                                    <label for="tel">
+                                        전화번호 : </label>
+                                    <input id="tel" type="text"
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                        minlength="1" maxlength="11" required autofocus> <br>
+
+                                    <label for="name">이름 : </label>
+                                    <input id="name" type="text"  minlength="1" maxlength="7"
+                                        required autofocus> <br>
+
+                                    <label for="engname">영문이름 : </label>
+                                    <input id="engname" type="text" aria-describedby="name" minlength="1" maxlength="7"
+                                        required autofocus>
+                                </div>
+                            </div>
+                            <div class="btn-box">
+                                <a class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+                                    정보 수정하기
+                                </a>
+                            </div>
+
+                        </form>
+                        <!-- /.container-fluid -->
+
+                    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; Binary Website 2022 </span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End of Footer -->
+
+                </div>
+                <!-- End of Content Wrapper -->
+
+            </div>
+            <!-- End of Page Wrapper -->
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">정말 로그아웃 하시겠습니까?</h5>
+                        </div>
+                        <div class="modal-body">현재 세션을 종료할 준비가 되었으면 아래 "로그아웃"을 <br>선택하십시오.</div>
+                        <div class="modal-footer">
+                            <button class="btn-secondary" type="button" data-dismiss="modal"
+                                data-dismiss="modal">취소</button>
+                                <button class="btn-primary" type="button" data-dismiss="modal" onclick="location.href='index.html'">로그아웃</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Modal-->
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">회원정보를 수정하시겠습니까?</h5>
+                        </div>
+                        <div class="modal-body">입력하신 내용으로 정보를 수정하시겠습니까?</div>
+                        <div class="modal-footer">
+                            <button class="btn-secondary" type="button" data-dismiss="modal"
+                                data-dismiss="modal">아니오</button>
+                            <button id="yesBtn" class="btn-primary" type="button" data-dismiss="modal"
+                            >네</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
+        import { getDatabase, ref, get, push, set, child, update, remove } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js';
+        import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL, deleteObject} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-storage.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBETK45cbP1g2ZYC03ras5UYys5fXAqV_4",
+            authDomain: "fir-course-edb8c.firebaseapp.com",
+            databaseURL: "https://fir-course-edb8c-default-rtdb.firebaseio.com",
+            projectId: "fir-course-edb8c",
+            storageBucket: "fir-course-edb8c.appspot.com",
+            messagingSenderId: "760960563313",
+            appId: "1:760960563313:web:eb3b145202888f8a3c83d0",
+            measurementId: "G-336MJ5MK72"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+
+        // 사진 선택 ----------------------------------------------------------
+        let files = [];
+        let reader = new FileReader();
+
+        let myimg = document.getElementById('myimg');
+
+        let input = document.createElement('input');
+        input.type = 'file';
+
+        input.onchange = e => {
+            files = e.target.files;
+
+            reader.readAsDataURL(files[0]);
+        }
+
+        reader.onload = function () {
+            myimg.src = reader.result;
+        }
+
+        myimg.onclick = function () {
+            input.click();
+        }
+        //----------------------------------------------------------
+
+        const selectData = async function (key) {
+            const dbref = ref(db);
+
+            let snapshot = await get(child(dbref, "registered/" + key + "/"));
+            if (snapshot.exists()) {
+                let categoriVal = snapshot.val().categori;
+                let nameVal = snapshot.val().name;
+                let engnameVal = snapshot.val().engname;
+                let statusVal = snapshot.val().status;
+                let telVal = snapshot.val().tel;
+                let imgUrl = snapshot.val().imgUrl;
+                let gradeVal = snapshot.val().grade;
+
+                categori.value = categoriVal;
+                status.value = statusVal;
+                number.value = key;
+                tel.value = telVal;
+                name.value = nameVal;
+                engname.value = engnameVal;
+                myimg.src = imgUrl;
+                grade.value = gradeVal;
+
+            }
+            else {
+                alret("No data found");
+            }
+
+        }
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        //------------------------------------------------------------
+        
+        async function firebaseStorage(){
+            if( files.length == 0){
+                    realDbUpdate(0);
+                    firebaseCRUD();
+            }
+            else{
+                let ImgToUpload;
+                ImgToUpload = files[0];
+                let imgName = number.value// + GetFileExt(files[0])
+    
+                const metaDdata = {
+                    contentType: ImgToUpload.type
+                }
+                const storage = getStorage();
+                const storageRef = sRef(storage, "registered/"+imgName);
+                const UploadTask = uploadBytesResumable(storageRef, ImgToUpload, metaDdata);
+                UploadTask.on('state-changed', (snapshot)=>{
+                    // let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    // proglab.innerHTML = "Upload" + progess +"%";
+                },(error)=>{
+                    alert("error: image not uploaded!");
+                },()=>{
+                    getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
+                        realDbUpdate(downloadURL);
+                        firebaseCRUD();
+                    });
+                });
+            }
+        }
+
+        function realDbUpdate(URL){
+            if(URL == 0){
+                update(ref(db, "registered/"+number.value),{
+                    categori: categori.value,
+                    status: status.value,
+                    tel: tel.value,
+                    name: name.value,
+                    engname: engname.value,
+                    grade: grade.value
+                }).then(()=>{
+                    alert("data updated successfully");
+                }).catch((error)=>{
+                    alert("unsuccessful, error : "+error);
+                });
+
+            }
+            else{
+                update(ref(db, "registered/"+number.value),{
+                    categori: categori.value,
+                    status: status.value,
+                    tel: tel.value,
+                    name: name.value,
+                    engname: engname.value,
+                    imgUrl: URL,
+                    grade: grade.value
+                }).then(()=>{
+                    alert("data updated successfully");
+                }).catch((error)=>{
+                    alert("unsuccessful, error : "+error);
+                });
+            }
+
+        }
+        
+        function firebaseCRUD(){
+            if(engname.value == engnameVal){
+                    window.location.href = './mypage.html?number='+num;
+            }
+            else{
+                const postListRef = ref(db, 'log/');
+                const key = push(postListRef);
+                set(key, {
+                    // type : 'update',
+                    // number:number.value,
+                    // engname : engname.value,
+                    update : number.value
+                }).then(()=>{
+                        window.location.href = './mypage.html?number='+num;
+                }).catch((error)=>{
+                    alert("unsuccessful, error : "+error);
+                });
+            }
+
+
+        }
+        let categori = document.getElementById("categori");
+        let status = document.getElementById("status");
+        let grade = document.getElementById("grade");
+        let number = document.getElementById("number");
+        let tel = document.getElementById("tel");
+        let name = document.getElementById("name");
+        let engname = document.getElementById("engname");
+        let engnameVal = engname.value;
+
+        let yesBtn = document.getElementById('yesBtn');
+
+        let num = getParameterByName("number");
+
+
+        await selectData(num);
+        yesBtn.addEventListener('click',firebaseStorage)
+
+    </script>
+</body>
+</html>
