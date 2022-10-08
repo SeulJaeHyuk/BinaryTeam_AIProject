@@ -603,3 +603,16 @@ button:hover{
   .aqua {
     color : aqua;
   }
+
+
+
+.img_item {
+	width: 100%;
+    	height: 100%;
+    	margin: 0 auto;
+    
+    	background-image: url("img/ai2.jpg");
+    	background-repeat: no-repeat;
+    	background-position: center center;
+    	backgorund-size: 100% 100%;
+}
