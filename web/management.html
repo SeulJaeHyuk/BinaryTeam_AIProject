@@ -20,13 +20,12 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    
     <!-- Favicon -->
     <link href="img/cod.png" rel="icon">
     <link rel="stylesheet" href="css/calendar.css">
-
-    <!-- Button -->
-    <link rel="stylesheet" href="css/style.css">
+    
+    
 </head>
 
 <body id="page-top">
@@ -39,7 +38,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index2.html">
-                <img src="img/cod.png" width="50" height="50"> <div class="sidebar-brand-text mx-3">Binary</div>
+               <img src="img/cod.png" width="50" height="50"> <div class="sidebar-brand-text mx-3">Binary</div>
             </a>
 
             <!-- Divider -->
@@ -168,18 +167,18 @@
                                 </form>
                             </div>
                         </li>
-
+                        
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow">
-                                <a class="dropdown-item" href="index.html" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -217,12 +216,12 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                오늘 출입한 횟수</div>
+                                                오늘 출입한 회원 수</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">0명</div>
                                         </div>
                                         <div class="col-auto">
@@ -263,7 +262,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 관리 로그</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">4건</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0건</div>
                                         </div>
                                         <div class="col-auto">
                                             <img src="img/al.png" width="70" height="70">
@@ -321,54 +320,65 @@
                         </div>
                     </div>
 
-
                 </div>
-                <!-- End of Main Content -->
+                <!-- /.container-fluid -->
+
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
 
-        </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">정말 로그아웃 하시겠습니까?</h5>
-                    </div>
-                    <div class="modal-body">현재 세션을 종료할 준비가 되었으면 아래 "로그아웃"을 <br>선택하십시오.</div>
-                    <div class="modal-footer">
-                        <button class="btn-secondary" type="button" data-dismiss="modal"
-                            data-dismiss="modal">취소</button>
-                        <button class="btn-primary" type="button" data-dismiss="modal"
-                            onclick="location.href='index.html'">로그아웃</button>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Binary Website 2022 </span>
                     </div>
                 </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+   <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">정말 로그아웃 하시겠습니까?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">현재 세션을 종료할 준비가 되었으면 아래 "로그아웃"을 <br>선택하십시오.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <a class="btn btn-primary" href="index.html">로그아웃</a>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="vendor/chart.js/Chart.min.js"></script>
-
-        <!-- ================================================================================================================================== -->
-    <!-- Page level custom scripts -->
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
@@ -725,6 +735,7 @@
         let record = document.getElementById("record");
         record.href = "record.html?search_date=" + nowYear + "-" + nowMonth + "-" + nowDate
     </script>
+
 </body>
 
 </html>
