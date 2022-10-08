@@ -24,8 +24,12 @@
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- Favicon -->
+    <link rel="stylesheet" href="css/style.css">
     <link href="img/cod.png" rel="icon">
     <link rel="stylesheet" href="css/calendar.css">
+
+    <!-- Button -->
+
 </head>
 
 <body id="page-top">
@@ -124,7 +128,6 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -204,13 +207,13 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">일자별 출입 기록</h6>
-                            
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <h6 style="color:red;">※ 달력을 클릭한 후 빈 여백을 클릭하시면 넘어갑니다.</h6> <br>
                                 <div class="header">
-                                    <div class="btn prevDay"></div> 
+                                    <div class="btn prevDay"></div>
                                     <div class="input-date">
                                         <label for="select-date">
                                             <h2 class='dateTitle'></h2>
@@ -234,29 +237,20 @@
                         </div>
                     </div>
                 </div>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Binary Website 2022 </span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
             </div>
-
         </div>
-        <!-- /.container-fluid -->
-
     </div>
     <!-- End of Main Content -->
 
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Binary Website 2022 </span>
-            </div>
-        </div>
-    </footer>
-    <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -301,8 +295,8 @@
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
-        import { getDatabase, ref, get, set, child, update, remove} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js';
-        
+        import { getDatabase, ref, get, set, child, update, remove } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js';
+
         const firebaseConfig = {
             apiKey: "AIzaSyBETK45cbP1g2ZYC03ras5UYys5fXAqV_4",
             authDomain: "fir-course-edb8c.firebaseapp.com",
@@ -313,30 +307,30 @@
             appId: "1:760960563313:web:eb3b145202888f8a3c83d0",
             measurementId: "G-336MJ5MK72"
         };
-        
+
         const app = initializeApp(firebaseConfig);
         const db = getDatabase();
-        
-        const selectName = async function(){
+
+        const selectName = async function () {
             const dbref = ref(db);
-            let snapshot = await get(child(dbref,"registered/"));
-            if(snapshot.exists()){
-                snapshot.forEach(number=>{
+            let snapshot = await get(child(dbref, "registered/"));
+            if (snapshot.exists()) {
+                snapshot.forEach(number => {
                     registered[number.key] = number.val().name;
-                    
+
                 })
             }
-            else{
+            else {
                 alret("No data found");
             }
         }
-        const selectData = async function(year, month, date){
+        const selectData = async function (year, month, date) {
             const dbref = ref(db);
-            const path = "club/"+year+"/"+month+"/"+date+"/";
-            
-            let snapshot = await get(child(dbref,path));
-            if(snapshot.exists()){
-                snapshot.forEach(key=>{
+            const path = "club/" + year + "/" + month + "/" + date + "/";
+
+            let snapshot = await get(child(dbref, path));
+            if (snapshot.exists()) {
+                snapshot.forEach(key => {
                     let number = key.val().number;
                     let name = key.val().name;
                     let time = key.val().time;
@@ -344,15 +338,15 @@
                     addRow(number, name, time)
                 })
             }
-            else{
+            else {
                 // alret("No data found");
             }
         }
-        function addRow(number, name, time){
+        function addRow(number, name, time) {
             let tbody = document.getElementById("tbody");
             let tdList = [];
             let row = document.createElement("tr");
-            for(let i=0; i<3;i++){
+            for (let i = 0; i < 3; i++) {
                 let td = document.createElement("td");
                 td.align = 'center';
                 tdList.push(td)
@@ -361,12 +355,12 @@
             tdList[0].innerHTML = number;
             tdList[1].innerHTML = name;
             tdList[2].innerHTML = time;
-            for(let i=0; i<3;i++){
+            for (let i = 0; i < 3; i++) {
                 row.appendChild(tdList[i])
             }
             tbody.appendChild(row)
         }
-        
+
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -377,42 +371,42 @@
         const changeDate = (nowDate) => {
             console.log(nowDate)
             let inputDate = new Date(nowDate);
-            
+
             // 현재의 년도와 월 받아오기
             let date = nowDate
-            
+
             let nowYear = nowDate.getFullYear();
             let nowMonth = nowDate.getMonth() + 1;
             let nowDay = nowDate.getDate();
 
             inputDate.setMonth(date.getMonth());
-            inputDate.setDate(date.getDate()+1);
+            inputDate.setDate(date.getDate() + 1);
             input.valueAsDate = inputDate;
 
             document.querySelector(`.dateTitle`).innerText = `${nowYear}년 ${nowMonth}월 ${nowDay}일`;
         }
-        function searchPage(newDate){
+        function searchPage(newDate) {
             let newYear = newDate.getFullYear();
-            let newMonth = newDate.getMonth()+1;
+            let newMonth = newDate.getMonth() + 1;
             let newDay = newDate.getDate();
-            window.location.href = "record.html?search_date="+newYear+"-"+newMonth+"-"+newDay
+            window.location.href = "record.html?search_date=" + newYear + "-" + newMonth + "-" + newDay
         }
-        
-        
+
+
         let registered = {}
-        
+
         let search_date = getParameterByName("search_date");
         let year = search_date.split('-')[0];
         let month = search_date.split('-')[1];
         let day = search_date.split('-')[2];
 
-        
+
         month = month < 10 ? '0' + month : month;
         day = day < 10 ? '0' + day : day;
-        
-        let date = new Date(year, month-1, day)
+
+        let date = new Date(year, month - 1, day)
         console.log(date)
-        
+
         let input = document.createElement('input');
         input.type = 'date';
         input.id = 'select-date';
@@ -423,13 +417,13 @@
 
         // 이전달 이동
         document.querySelector(`.prevDay`).onclick = () => {
-            date.setDate(date.getDate()-1);
+            date.setDate(date.getDate() - 1);
             searchPage(date);
         }
 
         // 다음달 이동
         document.querySelector(`.nextDay`).onclick = () => {
-            date.setDate(date.getDate()+1);
+            date.setDate(date.getDate() + 1);
             console.log(date)
             searchPage(date);
         }
@@ -446,8 +440,8 @@
         changeDate(date)
         selectName()
 
-        await selectData(year,month,day)
-        </script>
+        await selectData(year, month, day)
+    </script>
 
 </body>
 
