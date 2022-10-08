@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -788,7 +789,7 @@
                 padding: 10,
                 // Include a dollar sign in the ticks
                 callback: function(value, index, values) {
-                    return  + number_format(value) + '명';
+                    return + number_format(value) + '명' ;
                 }
                 },
                 gridLines: {
@@ -849,7 +850,7 @@
         data: {
             labels: weekDictKey,
             datasets: [{
-            label: "횟수",
+            label: "출입 횟수",
             lineTension: 0.3,
             backgroundColor: "rgba(78, 115, 223, 0.05)",
             borderColor: "rgba(78, 115, 223, 1)",
@@ -893,7 +894,7 @@
                 padding: 10,
                 // Include a dollar sign in the ticks
                 callback: function(value, index, values) {
-                    return + number_format(value) +  '명';
+                    return + number_format(value) + '회' ;
                 }
                 },
                 gridLines: {
@@ -1009,7 +1010,7 @@
         data: {
             labels: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
             datasets: [{
-            label: "출입 인원 수",
+            label: "출입 횟수",
             backgroundColor: "#4e73df",
             hoverBackgroundColor: "#2e59d9",
             borderColor: "#4e73df",
@@ -1048,7 +1049,7 @@
                 padding: 10,
                 // Include a dollar sign in the ticks
                 callback: function(value, index, values) {
-                    return + number_format(value) + '명';
+                    return + number_format(value) + '회';
                 }
                 },
                 gridLines: {
@@ -1078,7 +1079,7 @@
             callbacks: {
                 label: function(tooltipItem, chart) {
                 var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                return datasetLabel + ':' + number_format(tooltipItem.yLabel) + '명';
+                return datasetLabel + ':' + number_format(tooltipItem.yLabel) + '회';
                 }
             }
             },
