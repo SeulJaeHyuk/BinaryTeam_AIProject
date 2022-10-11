@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=21">
 
     <title>Binary</title>
 
@@ -23,13 +22,14 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    
+
     <!-- Favicon -->
     <link href="img/cod.png" rel="icon">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/calendar.css">
 
     <!-- Button -->
-    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body id="page-top">
@@ -42,7 +42,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index2.html">
-               <img src="img/cod.png" width="50" height="50"> <div class="sidebar-brand-text mx-3">Binary</div>
+                <img src="img/cod.png" width="50" height="50">
+                <div class="sidebar-brand-text mx-3">Binary</div>
             </a>
 
             <!-- Divider -->
@@ -62,8 +63,8 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-	
-			<!-- Nav Item - Pages Collapse Menu -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -75,7 +76,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="profile.html">회원정보</a>
                         <a class="collapse-item" href="charts.html">출입통계</a>
-                        <a class="collapse-item" id="record">출입기록</a>
+                        <a class="collapse-item" href="record.html">출입기록</a>
                         <a class="collapse-item" href="gallery.html">등록 인원 인증기록</a>
                         <a class="collapse-item" href="unKnown.html">미등록 인원 인증기록</a>
                     </div>
@@ -128,7 +129,6 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -180,12 +180,12 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow">
-                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="index.html" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -201,26 +201,33 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">회원정보</h1>                            
-                    <p class="mb-4">등록된 회원의 정보를 확인할 수 있습니다.</p>
+                    <h1 class="h3 mb-2 text-gray-800">미등록 인원 인증기록</h1>
+                    <p class="mb-4">등록되지 않은 회원의 일자별 출입 인증 기록을 확인할 수 있습니다.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block">회원 정보</h6>  <button onClick="location.href='regist2.html'">추가</button>
+                            <h6 class="m-0 font-weight-bold text-primary">미등록 인원 출입 인증 기록</h6>
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%"  cellspacing="0">
+                                <h6 style="color:red;">※ 달력을 클릭한 후 빈 여백을 클릭하시면 넘어갑니다.</h6> <br>
+                                <div class="header">
+                                    <div class="btn prevDay"></div>
+                                    <div class="input-date">
+                                        <label for="select-date">
+                                            <h2 class='dateTitle'></h2>
+                                        </label>
+                                    </div>
+                                    <div class="btn nextDay"></div>
+                                </div>
+                                <br>
+                                <table class="table table-bordered" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <td align=center><b>구분</td>
-                                            <td align=center><b>학번</td>
-                                            <td align=center><b>학년</td>
-                                            <td align=center><b>이름</td>
-                                            <td align=center><b>전화번호</td>
-                                            <td align=center><b>학적상태</td>
-                                            <td align=center><b>비고</td>
+                                            <td align="center"><b>사진</td>
+                                            <td align=center><b>출입일시</td>
                                         </tr>
                                     </thead>
                                     <tbody id="tbody">
@@ -229,46 +236,42 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Binary Website 2022 </span>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Binary Website 2022 </span>
+                        </div>
                     </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
+                </footer>
+                <!-- End of Footer -->
+            </div>
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End of Main Content -->
+
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
-   <!-- Logout Modal-->
+    <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">정말 로그아웃 하시겠습니까?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
                 <div class="modal-body">현재 세션을 종료할 준비가 되었으면 아래 "로그아웃"을 <br>선택하십시오.</div>
                 <div class="modal-footer">
-                    <button class="btn-secondary" type="button" data-dismiss="modal" data-dismiss="modal">취소</button>
-                    <button class="btn-primary" type="button" data-dismiss="modal" onclick="location.href='index.html'">로그아웃</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <a class="btn btn-primary" href="index.html">로그아웃</a>
                 </div>
             </div>
         </div>
@@ -289,11 +292,11 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <!--<script src="js/demo/datatables-demo.js"></script> -->
+
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
-        import { getDatabase, ref, get, set, child, update, remove} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js';
-        
+        import { getStorage, ref, getDownloadURL, list, listAll} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-storage.js';
+
         const firebaseConfig = {
             apiKey: "AIzaSyBETK45cbP1g2ZYC03ras5UYys5fXAqV_4",
             authDomain: "fir-course-edb8c.firebaseapp.com",
@@ -304,85 +307,154 @@
             appId: "1:760960563313:web:eb3b145202888f8a3c83d0",
             measurementId: "G-336MJ5MK72"
         };
-        
+
         const app = initializeApp(firebaseConfig);
-        const db = getDatabase();
+        const storage = getStorage();
+
+        //---------------create input-------------------------------------------
+        let input = document.createElement('input');
+        input.type = 'date';
+        input.id = 'select-date';
+        input.style.display = 'block';
+        document.querySelector(`.input-date`).appendChild(input)
+        //------------date control-----------------------------------------------------------
+        
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        function dateInit(search_date){
+            let dateTitle = document.querySelector(`.dateTitle`);
+            let now;
+            if(search_date ==""){
+                now = new Date();
+                search_date = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate();
+            }
+            let year = search_date.split('-')[0];
+            let month = search_date.split('-')[1];
+            let day = search_date.split('-')[2];
+            now = new Date(year, month - 1, day)
+
+            let inputDate = new Date(now);
+            inputDate.setDate(inputDate.getDate()+1);
+            let nowYear = now.getFullYear()
+            let nowMonth = now.getMonth() + 1
+            let nowDate = now.getDate()
+
+            nowMonth = nowMonth < 10 ? '0' + nowMonth : nowMonth;
+            nowDate = nowDate < 10 ? '0' + nowDate : nowDate;
+
+            dateTitle.innerText = `${nowYear}년 ${nowMonth}월 ${nowDate}일`;
+            input.valueAsDate = inputDate;
+
+            return now;
+        }
+
+        function searchPage(newDate) {
+            let newYear = newDate.getFullYear();
+            let newMonth = newDate.getMonth() + 1;
+            let newDay = newDate.getDate();
+            
+            newMonth = newMonth < 10 ? '0' + newMonth : newMonth;
+            newDay = newDay < 10 ? '0' + newDay : newDay;
+
+            window.location.href = "unKnown.html?search_date=" + newYear + "-" + newMonth + "-" + newDay
+        }
+        // 이전달 이동
+        document.querySelector(`.prevDay`).onclick = () => {
+            date.setDate(date.getDate() - 1);
+            searchPage(date);
+        }
+
+        // 다음달 이동
+        document.querySelector(`.nextDay`).onclick = () => {
+            date.setDate(date.getDate() + 1);
+            searchPage(date);
+        }
+
+        // input으로 이벤트 넘김
+        document.querySelector(`.dateTitle`).onclick = () => {
+            input.click();
+        }
+        input.onblur = () => {
+            let newDate = input.valueAsDate
+            searchPage(newDate)
+        }
+        //-----------------------------------------------------------------
+        function addRow(url, time) {
+            let tbody = document.getElementById("tbody");
+
+            let tr = document.createElement("tr");
+            let tdUrl = document.createElement("td");
+            let tdTime = document.createElement("td");
+            let img = document.createElement("img");
+            
+            img.src = url;
+            tdTime.innerHTML = time;
+
+            tdUrl.appendChild(img);
+            tr.appendChild(tdUrl);
+            tr.appendChild(tdTime);
+
+            tbody.appendChild(tr);
+        }
 
         
-        const selectData = async function(){
-            const dbref = ref(db);
-
-            let snapshot = await get(child(dbref,"registered/"));
-            if(snapshot.exists()){
-                snapshot.forEach(number=>{
-                    let key = number.key;
-                    let categori = number.val().categori;
-                    let grade = number.val().grade;
-                    let name = number.val().name;
-                    let status = number.val().status;
-                    let tel = number.val().tel;
-                    addRow(categori, key,grade, name, tel, status)
-                    
+        const selectData =  async function () {
+            let date = document.querySelector(`.dateTitle`).innerHTML;
+            let nowYear = date.slice(0,4);
+            let nowMonth = date.slice(6,8);
+            let nowDate = date.slice(10,12);
+            let path = "club/"+nowYear+"/"+nowMonth+"/"+nowDate;
+            console.log(path);
+            let fileName = [];
+            let time = [];
+            let urls = [];
+            const imgRef = ref(storage, "club/"+nowYear+"/"+nowMonth+"/"+nowDate);
+            await listAll(imgRef).then((res)=>{
+                res.prefixes.forEach(folderRef => {
+                });
+                res.items.forEach((itemRef)=>{
+                    fileName.push(itemRef.fullPath);
+                });
+            });
+            fileName.forEach(name=>{
+                time.push(name.split("/")[4]);
+            });
+            console.log(time)
+            let count = 0;
+            fileName.forEach(name=>{
+                const storage = getStorage();
+                getDownloadURL(ref(storage, name))
+                .then((url) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.responseType = 'blob';
+                    xhr.onload = (event) => {
+                        const blob = xhr.response;
+                    };
+                    xhr.open('GET', url);
+                    xhr.send();
+                    urls.push(url);
+                    addRow(url, time[count++])
                 })
-            }
-            else{
-                alret("No data found");
-            }
-            
-        }
-        function addRow(categori, number,grade, name,tel,status){
-            let tbody = document.getElementById("tbody")
-            let tdList = [];
-            let row = document.createElement("tr");
-            for(let i=0; i<7;i++){
-                let td = document.createElement("td");
-                td.align = 'center';
-                tdList.push(td)
-            }
+                .catch((error) => {
+                    // Handle any errors
+                });
+            })
+            console.log(urls);
+            console.log(name);
 
-            tdList[0].innerHTML = categori;
-            tdList[1].innerHTML = number;
-            tdList[2].innerHTML = grade;
-            tdList[3].innerHTML = name;
-            tdList[4].innerHTML = tel;
-            tdList[5].innerHTML = status;
-            tdList[6].appendChild(nextPage(number));
-            tdList[6].appendChild(lineCreate());
-            tdList[6].appendChild(chartPage(number));
-            for(let i=0; i<7;i++){
-                row.appendChild(tdList[i])
-            }
-            tbody.appendChild(row)
         }
-        function nextPage(number){
-            let a= document.createElement("a");
-            a.innerHTML = "관리"
-            a.href = "mypage.html?number="+number;
-            return a;
-        }
-        function chartPage(number){
-            let a= document.createElement("a");
-            a.innerHTML = "통계"
-            a.href = "chartPage.html?number="+number;
-            return a;
-        }
-        function lineCreate(){
-            let p= document.createElement("span");
-            p.innerHTML = " | "
-            return p;
-        }
+
+        //-----------------------------------------------------------------
+        let search_date = getParameterByName("search_date");
+        let date = dateInit(search_date);
+
         await selectData()
+    </script>
 
-        $('#dataTable').DataTable();
-    </script>
-    <script>
-        let now = new Date()
-        let nowYear = now.getFullYear()
-        let nowMonth = now.getMonth() + 1
-        let nowDate = now.getDate()
-        let record = document.getElementById("record");
-        record.href = "record.html?search_date=" + nowYear + "-" + nowMonth + "-" + nowDate
-    </script>
 </body>
 
 </html>

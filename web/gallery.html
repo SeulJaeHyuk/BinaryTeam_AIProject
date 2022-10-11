@@ -26,16 +26,8 @@
     <!-- Button -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font.css">
-    <link href="css/gallery_styles.css" rel="stylesheet" />
-
-    <style>
-        .jb-text {
-            padding: 15px 20px;
-            background-color: #444444;
-            border-radius: 5px;
-            color: #ffffff;
-        }
-    </style>
+    <link href="./css/gallery_styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/calendar.css">
 </head>
 
 <body id="page-top">
@@ -83,7 +75,8 @@
                         <a class="collapse-item" href="profile.html">회원정보</a>
                         <a class="collapse-item" href="charts.html">출입통계</a>
                         <a class="collapse-item" id="record" href="record.html">출입기록</a>
-                        <a class="collapse-item" href="gallery.html">인증기록</a>
+                        <a class="collapse-item" href="gallery.html">등록 인원 인증기록</a>
+                        <a class="collapse-item" href="unKnown.html">미등록 인원 인증기록</a>
                     </div>
                 </div>
             </li>
@@ -206,13 +199,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">인증 기록</h1>
-                    <p class="mb-4">학생들의 인증 기록을 확인할 수 있습니다.</p>
+                    <h1 class="h3 mb-2 text-gray-800">등록 인원 인증기록</h1>
+                    <p class="mb-4">등록된 학생들의 인증 기록을 확인할 수 있습니다.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block">인증 내역</h6>
+                            <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block">등록 인원 인증 내역</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -229,189 +222,11 @@
                                 <!-- Section-->
                                 <section class="py-5">
                                     <div class="container px-4 px-lg-5 mt-5">
-                                        <div
+                                        <div id="contentBox"
                                             class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <div class="jb-text">2022-10-08 00:00:00</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <div class="jb-text">2022-10-08 00:00:00</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <div class="jb-text">2022-10-08 00:00:00</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <div class="jb-text">2022-10-08 00:00:00</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <div class="jb-text">2022-10-08 00:00:00</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col mb-5">
-                                                <div class="card h-100">
-                                                    <!-- Student image-->
-                                                    <img class="card-img-top"
-                                                        src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                                        alt="..." />
-                                                    <!-- number badge-->
-                                                    <div class="badge bg-dark text-white position-absolute"
-                                                        style="top: 0.5rem; right: 0.5rem">0회</div>
-                                                    <!-- Student details-->
-                                                    <div class="card-body p-4">
-                                                        <div class="text-center">
-                                                            <!-- Student name-->
-                                                            <h5 class="fw-bolder">Student Name</h5>
-                                                            <!-- Student number-->
-                                                            <p class="gray">200000000</p>
-                                                            <!-- Student access-->
-                                                            2022-00-00 00:00:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
+                                        <!--data-->
+                                        <!--data-->
                                         </div>
                                     </div>
                                 </section>
@@ -472,10 +287,255 @@
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
+    <script type="module">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
+        import { getDatabase, ref, child, get, onValue, query ,orderByChild } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBETK45cbP1g2ZYC03ras5UYys5fXAqV_4",
+            authDomain: "fir-course-edb8c.firebaseapp.com",
+            databaseURL: "https://fir-course-edb8c-default-rtdb.firebaseio.com",
+            projectId: "fir-course-edb8c",
+            storageBucket: "fir-course-edb8c.appspot.com",
+            messagingSenderId: "760960563313",
+            appId: "1:760960563313:web:eb3b145202888f8a3c83d0",
+            measurementId: "G-336MJ5MK72"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+
+        //---------------create input-------------------------------------------
+        let input = document.createElement('input');
+        input.type = 'date';
+        input.id = 'select-date';
+        input.style.display = 'block';
+        document.querySelector(`.input-date`).appendChild(input)
+
+        //------------date control-----------------------------------------------------------
+        
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        function dateInit(search_date){
+            let dateTitle = document.querySelector(`.dateTitle`);
+            let now;
+            if(search_date ==""){
+                now = new Date();
+                search_date = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate();
+            }
+            let year = search_date.split('-')[0];
+            let month = search_date.split('-')[1];
+            let day = search_date.split('-')[2];
+            now = new Date(year, month - 1, day)
+
+            let inputDate = new Date(now);
+            inputDate.setDate(inputDate.getDate()+1);
+            let nowYear = now.getFullYear()
+            let nowMonth = now.getMonth() + 1
+            let nowDate = now.getDate()
+
+            nowMonth = nowMonth < 10 ? '0' + nowMonth : nowMonth;
+            nowDate = nowDate < 10 ? '0' + nowDate : nowDate;
+
+            dateTitle.innerText = `${nowYear}년 ${nowMonth}월 ${nowDate}일`;
+            input.valueAsDate = inputDate;
+
+            return now;
+        }
+
+        function searchPage(newDate) {
+            let newYear = newDate.getFullYear();
+            let newMonth = newDate.getMonth() + 1;
+            let newDay = newDate.getDate();
+            
+            newMonth = newMonth < 10 ? '0' + newMonth : newMonth;
+            newDay = newDay < 10 ? '0' + newDay : newDay;
+
+            window.location.href = "gallery.html?search_date=" + newYear + "-" + newMonth + "-" + newDay
+        }
+        // 이전달 이동
+        document.querySelector(`.prevDay`).onclick = () => {
+            date.setDate(date.getDate() - 1);
+            searchPage(date);
+        }
+
+        // 다음달 이동
+        document.querySelector(`.nextDay`).onclick = () => {
+            date.setDate(date.getDate() + 1);
+            searchPage(date);
+        }
+
+        // input으로 이벤트 넘김
+        document.querySelector(`.dateTitle`).onclick = () => {
+            input.click();
+        }
+        input.onblur = () => {
+            let newDate = input.valueAsDate
+            searchPage(newDate)
+        }
+        //-----------------------------------------------------------------
+        function updateBox(number, count){
+            let countBox = document.getElementById(number);
+            countBox.innerHTML = count +"회";
+        }
+        function createBox(data){
+            // let data = {
+            //     "imgUrl":"https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+            //     "name" : "Student Name",
+            //     "count" : "0회",
+            //     "number" : "200000000",
+            //     "date" : "2022-00-00 00:00:00"
+            // };
+            let contentBox = document.getElementById("contentBox")
+            let boderBox = document.createElement("div");
+            let mainBox = document.createElement("div");
+
+            let img = document.createElement("img");
+            let countBox = document.createElement("div");
+            let bottomBox = document.createElement("div");
+
+            let textBox = document.createElement("div");
+            let h5 = document.createElement("h5");
+            let p = document.createElement("p");
+
+            boderBox.className = "col mb-5";
+            mainBox.className = "card h-100";
+            img.className = "card-img-top";
+            countBox.className = "badge bg-dark text-white position-absolute";
+            countBox.id = data.number;
+            bottomBox.className = "card-body p-4";
+            textBox.className = "text-center";
+            h5.className = "fw-bolder";
+            p.className = "gray";
+
+            img.src = data.imgUrl;
+            countBox.style.top = "0.5rem";
+            countBox.style.right = "0.5rem";
+            countBox.innerHTML = data.count +"회";
+            h5.innerHTML = data.name;
+            p.innerHTML = data.number;
+
+            textBox.appendChild(h5);
+            textBox.appendChild(p);
+            textBox.innerHTML += data.date;
+            
+            mainBox.appendChild(img);
+            mainBox.appendChild(img);
+            mainBox.appendChild(img);
+            bottomBox.appendChild(textBox);
+
+            mainBox.appendChild(countBox);
+            mainBox.appendChild(bottomBox);
+            boderBox.appendChild(mainBox);
+            contentBox.appendChild(boderBox);
+        }
+        
+        const registeredGetgrade = async function () {
+            let date = document.querySelector(`.dateTitle`).innerHTML;
+            const dbref = ref(db);
+            let registered = {}
+
+            let snapshot = await get(child(dbref, "registered/"))
+            if (snapshot.exists) {
+                snapshot.forEach(childSnapshot => {
+                    registered[childSnapshot.key] = childSnapshot.val()
+                });
+            }
+            return registered
+        }
+        function selectData(){
+            let date = document.querySelector(`.dateTitle`).innerHTML;
+            let nowYear = date.slice(0,4);
+            let nowMonth = date.slice(6,8);
+            let nowDate = date.slice(10,12);
+            let registered = {};
+            let access = {};
+            
+            const dbRef  = query(ref(db, "/"), orderByChild("registered"));
+            onValue(dbRef, (snapshot)=>{
+                let contentBox = document.getElementById("contentBox");
+                contentBox.innerHTML = "";
+                registered = {};
+                access = {};
+
+                snapshot.forEach(categori=>{
+                    if(categori.key == "registered"){
+                        categori.forEach(number => {
+                            let data = {}
+                            data.categori = number.val().categori;
+                            data.engname = number.val().engname;
+                            data.grade = number.val().grade;
+                            data.imgUrl = number.val().imgUrl;
+                            data.name = number.val().name;
+                            data.status = number.val().status;
+                            data.tel = number.val().tel;
+                            registered[number.key] = data;
+                        })
+                    }
+
+                })
+                snapshot.forEach(categori=>{
+                    if(categori.key == "club"){
+                        categori.forEach(year=>{
+                            if(year.key == nowYear){
+                                year.forEach(month=>{
+                                    if(month.key == nowMonth){
+                                        month.forEach(date => {
+                                            if(date.key == nowDate){
+                                                date.forEach(data => {
+                                                    let number = data.val().number
+                                                    if(number in access){
+                                                        access[number]++;
+                                                        updateBox(number, access[number]);
+
+                                                    }
+                                                    else{
+                                                        let accessData = {};
+
+                                                        accessData["imgUrl"] = registered[number].imgUrl;
+                                                        accessData.name = registered[number].name;
+                                                        accessData.count = 1;
+                                                        accessData.number = number;
+                                                        accessData.date = data.val().time;
+                                                        access[number] = 1;
+
+                                                        createBox(accessData);
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            })
+
+        }
+        //-----------------------------------------------------------------
+        let search_date = getParameterByName("search_date");
+        let date = dateInit(search_date);
+        // let registered  = await registeredGetgrade();
+
+        
+        window.onload = selectData;
+
+    </script>
+    <script>
+        let now = new Date()
+        let nowYear = now.getFullYear()
+        let nowMonth = now.getMonth() + 1
+        let nowDate = now.getDate()
+        let record = document.getElementById("record");
+        record.href = "record.html?search_date=" + nowYear + "-" + nowMonth + "-" + nowDate
+    </script>
 </body>
 
 </html>

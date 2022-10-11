@@ -72,7 +72,8 @@
                         <a class="collapse-item" href="profile.html">회원정보</a>
                         <a class="collapse-item" href="charts.html">출입통계</a>
                         <a class="collapse-item" id="record">출입기록</a>
-                        <a class="collapse-item" href="gallery.html">인증기록</a>
+                        <a class="collapse-item" href="gallery.html">등록 인원 인증기록</a>
+                        <a class="collapse-item" href="unKnown.html">미등록 인원 인증기록</a>
                     </div>
                 </div>
             </li>
@@ -596,7 +597,7 @@
             data: {
                 labels: keyList,
                 datasets: [{
-                    label: "출입 횟수 ",
+                    label: "출입 학생 수 ",
                     lineTension: 0.3,
                     backgroundColor: "rgba(78, 115, 223, 0.05)",
                     borderColor: "rgba(78, 115, 223, 1)",
@@ -640,7 +641,7 @@
                             padding: 10,
                             // Include a dollar sign in the ticks
                             callback: function (value, index, values) {
-                                return number_format(value) + "회";
+                                return number_format(value) + "명";
                             }
                         },
                         gridLines: {
@@ -672,7 +673,7 @@
                     callbacks: {
                         label: function (tooltipItem, chart) {
                             var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                            return datasetLabel + ': ' + number_format(tooltipItem.yLabel) + '회';
+                            return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
                         }
                     }
                 }

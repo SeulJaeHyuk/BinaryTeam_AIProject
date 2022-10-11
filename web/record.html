@@ -24,8 +24,8 @@
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="stylesheet" href="css/style.css">
     <link href="img/cod.png" rel="icon">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/calendar.css">
 
     <!-- Button -->
@@ -76,8 +76,9 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="profile.html">회원정보</a>
                         <a class="collapse-item" href="charts.html">출입통계</a>
-                        <a class="collapse-item" href="record.html">출입기록</a>
-                        <a class="collapse-item" href="gallery.html">인증기록</a>
+                        <a class="collapse-item" id="record">출입기록</a>
+                        <a class="collapse-item" href="gallery.html">등록 인원 인증기록</a>
+                        <a class="collapse-item" href="unKnown.html">미등록 인원 인증기록</a>
                     </div>
                 </div>
             </li>
@@ -441,6 +442,14 @@
         selectName()
 
         await selectData(year, month, day)
+    </script>
+    <script>
+        let now = new Date()
+        let nowYear = now.getFullYear()
+        let nowMonth = now.getMonth() + 1
+        let nowDate = now.getDate()
+        let record = document.getElementById("record");
+        record.href = "record.html?search_date=" + nowYear + "-" + nowMonth + "-" + nowDate
     </script>
 
 </body>
