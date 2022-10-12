@@ -496,16 +496,18 @@
 
                                                     }
                                                     else{
-                                                        let accessData = {};
-
-                                                        accessData["imgUrl"] = registered[number].imgUrl;
-                                                        accessData.name = registered[number].name;
-                                                        accessData.count = 1;
-                                                        accessData.number = number;
-                                                        accessData.date = data.val().time;
-                                                        access[number] = 1;
-
-                                                        createBox(accessData);
+                                                        if(registered[number] != undefined){
+                                                            let accessData = {};
+    
+                                                            accessData["imgUrl"] = registered[number].imgUrl;
+                                                            accessData.name = registered[number].name;
+                                                            accessData.count = 1;
+                                                            accessData.number = number;
+                                                            accessData.date = data.val().time;
+                                                            access[number] = 1;
+    
+                                                            createBox(accessData);
+                                                        }
                                                     }
                                                 })
                                             }

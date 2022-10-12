@@ -77,7 +77,9 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="profile.html">회원정보</a>
                         <a class="collapse-item" href="charts.html">출입통계</a>
-                        <a class="collapse-item" href="record.html">출입기록</a>
+                        <a class="collapse-item" id="record">출입기록</a>
+                        <a class="collapse-item" href="gallery.html">등록 인원 인증기록</a>
+                        <a class="collapse-item" href="unKnown.html">미등록 인원 인증기록</a>
                     </div>
                 </div>
             </li>
@@ -383,7 +385,7 @@
         //----------------------------------------------------------
         let categori = document.getElementById("categori");
         let status = document.getElementById("status");
-        // let grade = document.getElementById('grade');
+        let grade = document.getElementById('grade');
         let number = document.getElementById("number");
         let tel = document.getElementById("tel");
         let name = document.getElementById("name");
@@ -401,6 +403,7 @@
                 return true
             }
             else if(grade.value){
+                console.log(grade.value)
                 return false
             }
             else if(number.value == ''){
@@ -463,6 +466,7 @@
             set(ref(realdb, "registered/"+number.value),{
                 categori: categori.value,
                 status: status.value,
+                grade: grade.value,
                 tel: tel.value,
                 name: name.value,
                 engname: engname.value,
