@@ -10,7 +10,7 @@
 	<script type="module">
 		// 기본 설정
 		import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
-		import { getDatabase, ref, get, set, child, update, remove} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js';
+        import { getStorage, ref, getDownloadURL, list, listAll} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-storage.js';
 		
 		const firebaseConfig = {
 			apiKey: "AIzaSyBETK45cbP1g2ZYC03ras5UYys5fXAqV_4",
@@ -24,52 +24,20 @@
 		};
 		
 		const app = initializeApp(firebaseConfig);
-		const db = getDatabase();
+        const storage = getStorage();
 
-        const test = async function (number) {
-            const dbref = ref(db);
-            let monthValue = [];
-
-            for(let i =5; i>=0; i--){
-                let date = new Date()
-                date.setMonth(date.getMonth()-i);
-                date.setHours(date.getHours()+9);
-                date = date.toISOString()+"";
-                monthValue.push(date.substr(0,7));
-            }
-
-            let week = {}
-            for(let i=0; i<monthValue.length;i++){
-                week[monthValue[i]] = 0;
-            }
-			console.log(week)
-            let snapshot = await get(child(dbref, "club/"))
-            if (snapshot.exists) {
-                snapshot.forEach(childSnapshot => {
-                    childSnapshot.forEach(month =>{
-                        month.forEach(day => {
-                            day.forEach(data => {
-                                let date = `${childSnapshot.key}-${month.key}`; 
-                                if(date in week){
-									console.log(date)
-                                    if(data.val().number == number){
-                                        week[date] = week[date] + 1;
-                                    }
-                                }
-                            })
-                        })
-                    })
+        function test(){
+            const storage = getStorage();
+                let path = "club/2022/10/12/10:05:34"
+                getDownloadURL(ref(storage, path))
+                .then((url) => {
+                    console.log(url)
+                })
+                .catch((error) => {
+                    // Handle any errors
                 });
-            }   
-            return week;
         }
-		// let list = await test("201813066");
-		// console.log(list)
-        let dict = {};
-        let data = {};
-        data.data = "hong"
-        dict.name = data;
-        console.log(dict)
+        test()
 	</script>
 </body>
 </html>

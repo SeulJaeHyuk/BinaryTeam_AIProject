@@ -383,83 +383,70 @@
             searchPage(newDate)
         }
         //-----------------------------------------------------------------
-        function addRow(url, time) {
+        const addRow = function (url, visitTime) {
             let tbody = document.getElementById("tbody");
 
             let tr = document.createElement("tr");
             let tdUrl = document.createElement("td");
-            let tdTime = document.createElement("td");
             let img = document.createElement("img");
             let imgBox = document.createElement("div");
+            let index = -1;
             
             img.src = url;
             img.style.width="20rem"
             imgBox.style.textAlign = "center";
-            tdTime.innerHTML = time;
-            tdTime.style.fontSize = '2rem';
-            tdTime.style.textAlign = 'center';
-            tdTime.style.verticalAlign = 'middle';
-
             imgBox.appendChild(img);
-            tdUrl.appendChild(imgBox);
-            tr.appendChild(tdUrl);
-            tr.appendChild(tdTime);
 
-            tbody.appendChild(tr);
+
+            let trList = tbody.childNodes;
+            for(let i=1;i<trList.length;i++){
+                    let td = trList[i].lastChild;
+                    if(td.innerHTML>visitTime){
+                        index = i-1;
+                        break;
+                    }
+            }
+            let newRow = tbody.insertRow(index);
+            let cell0 = newRow.insertCell(0);
+            let cell1 = newRow.insertCell(1);
+
+            cell1.style.fontSize = '2rem';
+            cell1.style.textAlign = 'center';
+            cell1.style.verticalAlign = 'middle';
+
+            cell0.appendChild(imgBox);
+            cell1.innerHTML = visitTime;
         }
 
+        let timeList = [];
         
         const selectData =  async function () {
             let date = document.querySelector(`.dateTitle`).innerHTML;
             let nowYear = date.slice(0,4);
             let nowMonth = date.slice(6,8);
             let nowDate = date.slice(10,12);
-            let path = "club/"+nowYear+"/"+nowMonth+"/"+nowDate;
-            console.log(path);
-            let fileName = [];
-            let time = [];
-            let urls = [];
             const imgRef = ref(storage, "club/"+nowYear+"/"+nowMonth+"/"+nowDate);
-            await listAll(imgRef).then((res)=>{
-                res.prefixes.forEach(folderRef => {
-                });
-                res.items.forEach((itemRef)=>{
-                    fileName.push(itemRef.fullPath);
-                });
-            });
-            fileName.forEach(name=>{
-                time.push(name.split("/")[4]);
-            });
-            console.log(time)
-            let count = 0;
-            fileName.forEach(name=>{
-                const storage = getStorage();
-                getDownloadURL(ref(storage, name))
-                .then((url) => {
-                    const xhr = new XMLHttpRequest();
-                    xhr.responseType = 'blob';
-                    xhr.onload = (event) => {
-                        const blob = xhr.response;
-                    };
-                    xhr.open('GET', url);
-                    xhr.send();
-                    urls.push(url);
-                    addRow(url, time[count++])
+
+            let snapshot = await listAll(imgRef);
+            let count = 0
+            
+            snapshot.items.forEach((itemRef)=>{
+                let fullPath = itemRef.fullPath;
+                console.log(fullPath)
+                let visitTime = fullPath.split("/")[4];
+                getDownloadURL(ref(storage, fullPath))
+                .then((url)=>{
+                    addRow(url, visitTime);
                 })
-                .catch((error) => {
-                    // Handle any errors
-                });
-            })
-            console.log(urls);
-            console.log(name);
+            });
+            
 
         }
 
         //-----------------------------------------------------------------
         let search_date = getParameterByName("search_date");
         let date = dateInit(search_date);
-
-        await selectData()
+        await selectData();
     </script>
 
 </body>
