@@ -18,20 +18,23 @@ from messenger.thread_event import Thread_Event
 if __name__ == '__main__':
     # instance create ==============================================================
     # main --------------------------------------------------------------
-    camera = Camera(tolerance=0.45)
+    camera = Camera(tolerance=0.41)
     # known --------------------------------------------------------------
-    realtime_db = firebase_database(2)
+    realtime_db = firebase_database(5)
     doorlock = Doorlock()
     # unknown --------------------------------------------------------------
     storage = firebase_storage()
     telegram = Telegram()
     # event --------------------------------------------------------------
-    send_evnet = Thread_Event()
-    receive_evnet = Thread_Event()
+    capture_to_storage = threading.Event()
+    capture_to_telegram = threading.Event()
+    storage_to_capture = threading.Event()
+    telegram_to_capture = threading.Event()
+
     update_event = threading.Event()
     patch_event = threading.Event()
     # queue --------------------------------------------------------------
-    q = Thread_Queue()
+    q = Thread_Queue(0)
     main_q = Queue()
 
     # thread create ==============================================================
@@ -42,11 +45,11 @@ if __name__ == '__main__':
         target=doorlock.action, args=(q.get_doorlock(),), daemon=True)
     # unknwon--------------------------------------------------------------
     capture_thread = threading.Thread(
-        target=camera.imgCaptture, args=(q.get_capture(), send_evnet, receive_evnet), daemon=True)
+        target=camera.imgCaptture, args=(q.get_capture(), capture_to_storage, capture_to_telegram, storage_to_capture, telegram_to_capture), daemon=True)
     storage_thread = threading.Thread(
-        target=storage.insert, args=(q.get_storage(), receive_evnet.get_a(), send_evnet.get_a()), daemon=True)
+        target=storage.insert, args=(q.get_storage(),capture_to_storage, storage_to_capture), daemon=True)
     telegram_thread = threading.Thread(
-        target=telegram.send, args=(q.get_telegram(), receive_evnet.get_b(), send_evnet.get_b()), daemon=True)
+        target=telegram.send, args=(q.get_telegram(),capture_to_telegram, telegram_to_capture), daemon=True)
     # update--------------------------------------------------------------
     observer_thread = threading.Thread(
         target=realtime_db.observer, args=(q.get_update(), update_event), daemon=True)
@@ -58,50 +61,43 @@ if __name__ == '__main__':
     # thread start ==============================================================
     # knwon--------------------------------------------------------------
     realtime_thread.start()
-    # doorlock_thread.start()
+    doorlock_thread.start()
     # # unknwon--------------------------------------------------------------
-    # capture_thread.start()
-    # storage_thread.start()
-    # telegram_thread.start()
+    capture_thread.start()
+    storage_thread.start()
+    telegram_thread.start()
     # # update--------------------------------------------------------------
-    # observer_thread.start()
-    # update_thread.start()
-    # patch_thread.start()
+    observer_thread.start()
+    update_thread.start()
+    patch_thread.start()
 
     # main preparation ==============================================================
     # unkown receive ready
-    receive_evnet.setAll()
+    storage_to_capture.set()
+    telegram_to_capture.set()
 
     # number to eng name
     numbers = camera.get_numbers()
     camera.set_names(realtime_db.changeName(numbers))
     names = camera.get_numbers()
-    # data_dict = {}
-    # for number, name in zip(numbers, names):
-    #     data_dict[name] = number
-    # print(data_dict)
 
     # main start ==============================================================
+    accessTime = []
     while True:
         update = False
         if update_event.is_set():
             update = True
-        if not main_q.empty():
-            data_dict = main_q.get()
         frame, name = camera.getData(update)
-        # cv2.namedWindow("webcam", cv2.WND_PROP_FULLSCREEN)
-        # cv2.setWindowProperty("webcam", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+        cv2.namedWindow("webcam", cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty("webcam", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         cv2.imshow("webcam", frame)
-        # 등록된 인원이 아닐경우
+
         if name == 'Unknown':
             q.put_img('Unknown',frame)
-        elif name != '':
-            # q.put(data_dict[name])
+        elif name != "":
             q.put(name)
 
-
         key = cv2.waitKey(1) & 0xFF
-
         if key == ord("q"):
             break
 

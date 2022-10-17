@@ -1,14 +1,18 @@
+import time
 from queue import Queue
 
 
 class Thread_Queue:
-    def __init__(self):
+    def __init__(self, delay=5):
         self.realtime_queue = Queue()
         self.update_queue = Queue()
         self.storage_queue = Queue()
         self.telegram_queue = Queue()
         self.doorlock_queue = Queue()
         self.capture_queue = Queue()
+        self.delay = delay
+        self.known = time.time()
+        self.unKnown = time.time()
 
     def get_realtime(self):
         return self.realtime_queue
@@ -24,12 +28,14 @@ class Thread_Queue:
         return self.capture_queue
 
     def put(self, keyword):
-        self.realtime_queue.put(keyword)
-        if self.doorlock_queue.empty():
+        if time.time() - self.known > self.delay:
+            self.realtime_queue.put(keyword)
             self.doorlock_queue.put(keyword)
 
     def put_img(self, name, frame):
-        data = { name : frame}
-        self.capture_queue.put(data)
-        self.storage_queue.put(name)
-        self.telegram_queue.put(name)
+        # if time.time() - self.unKnown > self.delay:
+        if self.capture_queue.empty():
+            data = { name : frame}
+            self.capture_queue.put(data)
+            # self.telegram_queue.put(name)
+            # self.storage_queue.put(name)

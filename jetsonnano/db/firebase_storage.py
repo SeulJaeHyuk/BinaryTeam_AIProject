@@ -17,13 +17,23 @@ class firebase_storage(Firebase):
         self.storage.child("club").child(year).child(month).child(day).child(date[11:19]).put('Unknown.jpg')
         
     # 이미지 저장 스레드
-    def insert(self, q, send, receive):
+    def insert(self, q, capture_to_storage, storage_to_capture):
         while True:
-            if receive.is_set():
-                file = q.get()
-                self.img_insert(str(datetime.now()))
-                send.set()
-                receive.clear()
+            capture_to_storage.wait()
+            print("storage")
+            # file = q.get()
+            self.img_insert(str(datetime.now()))
+            storage_to_capture.set()
+            capture_to_storage.clear()
+            while not q.empty():
+                q.get()
+    # def insert(self, q, send, receive):
+    #     while True:
+    #         if receive.is_set():
+    #             file = q.get()
+    #             self.img_insert(str(datetime.now()))
+    #             send.set()
+    #             receive.clear()
     
     # log에 따라 업데이트 내용 분류
     def update(self,q, e):

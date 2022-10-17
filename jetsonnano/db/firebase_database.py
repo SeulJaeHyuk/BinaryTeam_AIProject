@@ -8,7 +8,6 @@ import json
 
 from db.firebase_connet import Firebase
 
-
 class firebase_database(Firebase):
 
     def __init__(self, delay = 10, path='db/auth_database.json'):
@@ -40,12 +39,10 @@ class firebase_database(Firebase):
         day = date[8:10]
         if self.cooldowncheck(name):
         # if True:
-            print("last :",self.last_person)
             self.last_person['number'] = data['number']
             self.last_person['engname'] = name
             self.last_person['name'] = data['name']
             self.last_person['time'] = now
-            print("last set :", self.last_person)
             self.db.child("club").child(year).child(month).child(day).push(data)
             return True
         else:
@@ -58,8 +55,9 @@ class firebase_database(Firebase):
             return True
         else:
             # 이름이 다를시 바로 저장
-            # if name != self.last_person['engname']:
-            #     return True
+            if name != self.last_person['engname']:
+                return True
+
             now = datetime.datetime.now()
             date = self.last_person['time']
             difference = (now - date).seconds
@@ -87,12 +85,11 @@ class firebase_database(Firebase):
 
     # realdatabase 감시 스레드
     def observer(self, q, e):
-        data = {'insert': '201813066'}
-        self.db.child("log").push(data)
+        # data = {'insert': '201813066'}
+        # self.db.child("log").push(data)
         while True:
             registered = self.db.child("log").get()
             if registered != None and registered.val() != None:
-                print('observer :',registered)
                 e.set()
                 for people in registered.each():
                     key = people.key()
