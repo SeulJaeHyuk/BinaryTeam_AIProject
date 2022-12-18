@@ -155,11 +155,13 @@ class Camera():
     #                 q.get()
 
 if __name__ == '__main__':
-    camera = Camera('../registered')
+    camera = Camera('/home/jetson/Documents/jetsonnano/registered')
     while True:
         # start = time.time()
         frame, name = camera.getData()
         print(f'name : {name}')
+        cv2.namedWindow("webcam", cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty("webcam", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         cv2.imshow('cam',frame)
         # end = time.time()
         # print(f"{end - start:.3f} sec")

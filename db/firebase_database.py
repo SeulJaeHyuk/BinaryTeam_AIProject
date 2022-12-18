@@ -10,7 +10,7 @@ from db.firebase_connet import Firebase
 
 class firebase_database(Firebase):
 
-    def __init__(self, delay = 10, path='db/auth_database.json'):
+    def __init__(self, delay = 10, path='/home/jetson/Documents/jetsonnano/db/auth_database.json'):
         super().__init__(path)
         self.registered_data = {}
         self.delay = delay
