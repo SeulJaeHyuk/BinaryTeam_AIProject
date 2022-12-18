@@ -158,7 +158,7 @@ firebse에 저장하기 위해 token, id 등 필요한 요소들을 미리 입�
 </pre>
 
 # Thank you
-다른 방식으로 설치하고 소스코드를 얻기 위해 개발에 함께한 팀원들([손옥무](https://github.com/okdoittttt), [김건우](https://github.com/Muzi4), [장성익](https://github.com/cyber-steer), [설혁](https://github.com/SeulJaeHyuk))의 깃허브를 방문하실 수 있습니다.
+다른 방식으로 설치하고 소스코드를 얻기 위해 개발에 함께한 팀원들([손옥무](https://github.com/okdoittttt), [김건우](https://github.com/Muzi4), [장성익](https://github.com/cyber-steer), [설재혁](https://github.com/SeulJaeHyuk))의 깃허브를 방문하실 수 있습니다.
 <br>
 <br>
 실행할 때는 [main.py](./main.py) 파일만을 실행시키면 되며 telegram, firebase는 자신에 정보로 업데이트 해야합니다.
